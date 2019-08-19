@@ -6,9 +6,8 @@ var truckdriver = "ShippingCompany"
 var retailer = "Retailer"
 
 //customizing variables. 
-var username = "hyeyop" // insert your user name
-//var OrderEndpoint = "http://13.125.217.83:8545" // insert your ELB endpoint
-var OrderEndpoint = "http://localhost:3000" // insert your ELB endpoint
+var username = " " // insert your user name
+var OrderEndpoint = "http://13.209.72.127:3000" // insert your RESTful API endpoint
 
 
 var main = function () {

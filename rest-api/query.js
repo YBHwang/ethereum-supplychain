@@ -31,7 +31,7 @@ var queryTransfer = async function(args, fcn) {
 			try {
 				json = JSON.parse(JSON.stringify(responses));
 			}
-			catch {
+			catch(error) {
 				json = JSON.stringify(responses);
 			}
 			ret.push(json);

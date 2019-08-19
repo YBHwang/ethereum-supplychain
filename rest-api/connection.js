@@ -23,8 +23,8 @@ var util = require('util');
 // Web3 Connect
 //------------------------
 var Web3 = require('web3');
-//var web3 = new Web3(new Web3.providers.HttpProvider("http://13.125.217.83:7545")); //aws
-var provider = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545")); //ganache
+var contractAddress = "[YOUR CONTRACT ADDRESS]";  // your contractAddress (eg.0xb95d66c2d3b7605183c41ee5e5d775b83d0f8d5d)
+var provider = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
 const web3 = new Web3(provider);
 var beerAbi = [
     {
@@ -236,7 +236,6 @@ var beerAbi = [
         "type": "constructor"
     }
 ];
-var contractAddress = "0xb44a24bdca4209424f73d3b252b764aa31cd4827"; // ganache
 var beerContract = new web3.eth.Contract(beerAbi, contractAddress);
 web3.eth.defaultAccount = web3.eth.accounts[0];
 
