@@ -7,7 +7,7 @@ var retailer = "Retailer"
 
 //customizing variables. 
 var username = " " // insert your user name
-var OrderEndpoint = "http://[YOUR PUBLIC IP]:3000" // insert your RESTful API endpoint
+var Endpoint = "http://[YOUR PUBLIC IP]:3000" // insert your RESTful API endpoint
 
 
 var main = function () {
@@ -16,7 +16,7 @@ var main = function () {
         sum += 1;
         //order 테이블에서 정보 가져오기
         $.ajax({
-            url: OrderEndpoint + "/orders/ORDER0",
+            url: Endpoint + "/orders/ORDER0",
             type: 'GET',
             dataType: 'json',
             headers: {
@@ -890,7 +890,7 @@ if (document.getElementById("btnMAT") !== null) {
         $("#btnMAT").addClass("btn-secondary");
 
         $.ajax({
-            url: OrderEndpoint + "/transfer/accept",
+            url: Endpoint + "/transfer/accept",
             headers: headers,
             type: 'POST',
             success: function (response) {
@@ -928,7 +928,7 @@ if (document.getElementById("btnMRT") !== null) {
                 console.log(sendDATA)
 
                 $.ajax({
-                    url: OrderEndpoint + "/transfer/request",
+                    url: Endpoint + "/transfer/request",
                     headers: headers,
                     type: 'POST',
                     data: sendDATA,
@@ -965,7 +965,7 @@ if (document.getElementById("btnTAT") !== null) {
         $("#btnTAT").addClass("btn-secondary");
 
         $.ajax({
-            url: OrderEndpoint + "/transfer/accept",
+            url: Endpoint + "/transfer/accept",
             headers: headers,
             type: 'POST',
             success: function (response) {
@@ -1002,7 +1002,7 @@ if (document.getElementById("btnTRT") !== null) {
                 console.log(sendDATA)
 
                 $.ajax({
-                    url: OrderEndpoint + "/transfer/request",
+                    url: Endpoint + "/transfer/request",
                     headers: headers,
                     type: 'POST',
                     data: sendDATA,
@@ -1039,7 +1039,7 @@ if (document.getElementById("btnRAT") !== null) {
         $("#btnRAT").addClass("btn-secondary");
 
         $.ajax({
-            url: OrderEndpoint + "/transfer/accept",
+            url: Endpoint + "/transfer/accept",
             headers: headers,
             type: 'POST',
             success: function (response) {
@@ -1065,12 +1065,12 @@ if (document.getElementById("btnRC") !== null) {
         $("#btnRC").addClass("btn-secondary");
 
         $.ajax({
-            url: OrderEndpoint + "/transfer/complete",
+            url: Endpoint + "/transfer/complete",
             headers: headers,
             type: 'POST',
             success: function (response) {
                 $.ajax({
-                    url: OrderEndpoint + "/orders/ORDER0",
+                    url: Endpoint + "/orders/ORDER0",
                     type: 'GET',
                     dataType: 'json',
                     headers: {
