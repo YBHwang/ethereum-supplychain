@@ -7,14 +7,14 @@ var retailer = "Retailer"
 
 //customizing variables. 
 var username = " " // insert your user name
-var OrderEndpoint = "http://13.209.72.127:3000" // insert your RESTful API endpoint
+var OrderEndpoint = "http://[YOUR PUBLIC IP]:3000" // insert your RESTful API endpoint
 
 
 var main = function () {
     // 5 초마다 화면 갱신
     setInterval(function () {
         sum += 1;
-        //order 테이블에서 정보 가져오기 
+        //order 테이블에서 정보 가져오기
         $.ajax({
             url: OrderEndpoint + "/orders/ORDER0",
             type: 'GET',
