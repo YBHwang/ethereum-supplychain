@@ -25,23 +25,23 @@ contract Beer
         FirstCount = 0;
     }
 
-    function QueryOrder() public view returns (string owner, StateType State, uint256 count, uint256 ctime, uint256 utime)
+    functionQueryOrder() public view returns (string owner, StateType State, uint256 count, uint256 ctime, uint256 utime)
     {
         return (RequestedCounterparty, currState, RequestedCount, CTime, UTime);
     }
 
-    function InitLedger() public returns(bool success)
+    functionInitLedger() public returns(bool success)
     {
         currState = StateType.Created;
         RequestedCounterparty = "";
         RequestedCount = 0;
         CTime = now;
-        UTime = CTime;
+        UTime = CTime
 
         return true;
     }
 
-    function StartTransfer(string newCounterparty, uint256 newCount) public returns(bool success)
+    functionStartTransfer(string newCounterparty, uint256 newCount) public returns(bool success)
     {
         if (currState != StateType.Created)
         {
@@ -53,10 +53,11 @@ contract Beer
         FirstCount = newCount;
         RequestedCount = FirstCount;
         UTime = now;
+
         return true;
     }
 
-    function RequestTransfer(string newCounterparty, uint256 newCount) public returns(bool success)
+    functionRequestTransfer(string newCounterparty, uint256 newCount) public returns(bool success)
     {
         if (currState != StateType.InTransit)
         {
@@ -67,22 +68,23 @@ contract Beer
         RequestedCounterparty = newCounterparty;
         RequestedCount = newCount;
         UTime = now;
+
         return true;
     }
 
-    function AcceptTransfer() public returns(bool success)
+    functionAcceptTransfer() public returns(bool success)
     {
         if (currState != StateType.TransitionRequestPending)
         {
             revert();
         }
-
         currState = StateType.InTransit;
         UTime = now;
+
         return true;
     }
 
-    function Complete() public returns(bool success)
+    functionComplete() public returns(bool success)
     {
         if (currState != StateType.InTransit)
         {
@@ -93,6 +95,7 @@ contract Beer
             currState = StateType.OutOfCompliance;
         }
         UTime = now;
+
         return true;
     }
 }
