@@ -25,12 +25,12 @@ contract Beer
         FirstCount = 0;
     }
 
-    functionQueryOrder() public view returns (string owner, StateType State, uint256 count, uint256 ctime, uint256 utime)
+    function QueryOrder() public view returns (string owner, StateType State, uint256 count, uint256 ctime, uint256 utime)
     {
         return (RequestedCounterparty, currState, RequestedCount, CTime, UTime);
     }
 
-    functionInitLedger() public returns(bool success)
+    function InitLedger() public returns(bool success)
     {
         currState = StateType.Created;
         RequestedCounterparty = "";
@@ -41,7 +41,7 @@ contract Beer
         return true;
     }
 
-    functionStartTransfer(string newCounterparty, uint256 newCount) public returns(bool success)
+    function StartTransfer(string newCounterparty, uint256 newCount) public returns(bool success)
     {
         if (currState != StateType.Created)
         {
@@ -57,7 +57,7 @@ contract Beer
         return true;
     }
 
-    functionRequestTransfer(string newCounterparty, uint256 newCount) public returns(bool success)
+    function RequestTransfer(string newCounterparty, uint256 newCount) public returns(bool success)
     {
         if (currState != StateType.InTransit)
         {
@@ -72,7 +72,7 @@ contract Beer
         return true;
     }
 
-    functionAcceptTransfer() public returns(bool success)
+    function AcceptTransfer() public returns(bool success)
     {
         if (currState != StateType.TransitionRequestPending)
         {
@@ -84,7 +84,7 @@ contract Beer
         return true;
     }
 
-    functionComplete() public returns(bool success)
+    function Complete() public returns(bool success)
     {
         if (currState != StateType.InTransit)
         {
