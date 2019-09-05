@@ -36,7 +36,7 @@ contract Beer
         RequestedCounterparty = "";
         RequestedCount = 0;
         CTime = now;
-        UTime = CTime
+        UTime = CTime;
 
         return true;
     }
